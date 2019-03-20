@@ -86,7 +86,7 @@ def drawworld(user, point):
     lake='🌊'
     null='n'
     symbol=null
-    kb=types.InlineKeyboardMarkup()
+    kb=types.InlineKeyboardMarkup(5)
     x=point[0]
     y=point[1]
     currentx=x-2
