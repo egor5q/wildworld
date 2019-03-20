@@ -95,17 +95,17 @@ def drawworld(user, point):
         currenty=y-2
         while currenty<y+2:
             cpos=str(currentx)+' '+str(currenty)
-            if cworld[cpos]=='tree':
+            if cworld[cpos]['object']=='tree':
                 symbol=tree
-            if cworld[cpos]=='rock':
+            if cworld[cpos]['object']=='rock':
                 symbol=rock
-            if cworld[cpos]=='hill':
+            if cworld[cpos]['object']=='hill':
                 symbol=hill
-            if cworld[cpos]=='hole':
+            if cworld[cpos]['object']=='hole':
                 symbol=hole
-            if cworld[cpos]=='bush':
+            if cworld[cpos]['object']=='bush':
                 symbol=bush
-            if cworld[cpos]=='lake':
+            if cworld[cpos]['object']=='lake':
                 symbol=lake
             buttons.append(types.InlineKeyboardButton(text=symbol, callback_data='none'))
             currenty+=1
