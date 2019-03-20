@@ -68,7 +68,7 @@ def showp(m):
     try:
         x=int(m.text.split(' ')[1])
         y=int(m.text.split(' ')[2])
-        drawworld(m.from_user, x, y)
+        drawworld(m.from_user, [x, y])
     except Exception as e:
         print('Ошибка:\n', traceback.format_exc())
         bot.send_message(441399484, traceback.format_exc())
