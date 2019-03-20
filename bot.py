@@ -109,6 +109,10 @@ def drawworld(user, point):
                 symbol=bush
             if cworld[cpos]=='lake':
                 symbol=lake
+            if random.randint(1,2)==1:
+                symbol+='t'
+            if random.randint(1,2)==1:
+                symbol+='e'
             buttons.append(types.InlineKeyboardButton(text=symbol, callback_data='none'))
             currenty+=1
         kb.add(*buttons)
