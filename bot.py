@@ -69,7 +69,9 @@ def showp(m):
         x=int(m.text.split(' ')[1])
         y=int(m.text.split(' ')[2])
         dwawworld(m.from_user, x, y)
-    except:
+    except Exception as e:
+        print('Ошибка:\n', traceback.format_exc())
+        bot.send_message(441399484, traceback.format_exc())
         bot.send_message(m.chat.id, 'Ошибка! Возможны следующие варианты:\n1. Вы указали крайнюю точку, я не смог нарисовать мир вокруг '+
                          'неё в радиусе 2х блоков;\n2. Указаны неверные аргументы. Пример:\n`/showpoint 30 40`', parse_mode='markdown')
     
