@@ -84,7 +84,7 @@ def drawworld(user, point):
     hole='🕳'
     bush='☘️'
     lake='🌊'
-    null=''
+    null='n'
     symbol=null
     kb=types.InlineKeyboardMarkup()
     x=point[0]
