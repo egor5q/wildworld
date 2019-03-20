@@ -61,6 +61,54 @@ def createworldmessage(m):
                 bot.send_message(441399484, msg.text)
         except:
             bot.send_message(m.chat.id, 'Неправильно введены аргументы *х* и *у*!\n`/createworld 500 500`', parse_mode='markdown')
+    
+    
+@bot.message_handler(commands=['showpoint'])
+def showp(m):
+    try:
+        x=int(m.text.split(' ')[1])
+        y=int(m.text.split(' ')[2])
+        dwawworld(m.from_user, x, y)
+    except:
+        bot.send_message(m.chat.id, 'Ошибка! Возможны следующие варианты:\n1. Вы указали крайнюю точку, я не смог нарисовать мир вокруг '+
+                         'неё в радиусе 2х блоков;\n2. Указаны неверные аргументы. Пример:\n`/showpoint 30 40`', parse_mode='markdown')
+    
+    
+def drawworld(user, point):
+    cworld=world.find_one({})
+    tree='🌳'
+    rock='⚫️'
+    hill='⛰'
+    hole='🕳'
+    bush='☘️'
+    lake='🌊'
+    null=''
+    symbol=null
+    kb=types.InlineKeyboardMarkup()
+    x=point[0]
+    y=point[1]
+    currentx=x-2
+    while currentx<x+2:
+        buttons=[]
+        currenty=y-2
+        while currenty<y+2:
+            cpos=str(currentx)+' '+str(currenty)
+            if cworld[cpos]=='tree':
+                symbol=tree
+            if cworld[cpos]=='rock':
+                symbol=rock
+            if cworld[cpos]=='hill':
+                symbol=hill
+            if cworld[cpos]=='hole':
+                symbol=hole
+            if cworld[cpos]=='bush':
+                symbol=bush
+            if cworld[cpos]=='lake':
+                symbol=lake
+            buttons.append(types.InlineKeyboardButton(text=symbol, callback_data='none'))
+        kb.add(*buttons)
+    bot.send_message(user.id, 'Центральная клетка:\nx='+str(x)+', y='+str(y), reply_markup=kb)
+    
             
             
 def createworld(x, y):
