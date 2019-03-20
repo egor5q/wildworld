@@ -120,7 +120,7 @@ def drawworld(user, point):
 def createworld(x, y):
     currentworld={}
     currentx=1
-    chance=8
+    chance=20
     while currentx<=x:
         currenty=1
         while currenty<=y:
