@@ -60,7 +60,7 @@ def createworldmessage(m):
             if m.chat.id!=441399484:
                 bot.send_message(441399484, msg.text)
         except:
-            bot.send_message(m.chat.id, 'Неправильно введены аргументы *х* и *у*!\n`/createworld 500 500`', parse_mode='markdown')
+            bot.send_message(m.chat.id, 'Неправильно введены аргументы *х* и *у*!\n`/createworld 100 100`', parse_mode='markdown')
     
     
 @bot.message_handler(commands=['showpoint'])
@@ -92,10 +92,10 @@ def drawworld(user, point):
     x=point[0]
     y=point[1]
     currentx=x-2
-    while currentx<x+2:
+    while currentx<=x+2:
         buttons=[]
         currenty=y-2
-        while currenty<y+2:
+        while currenty<=y+2:
             cpos=str(currentx)+' '+str(currenty)
             if cworld[cpos]=='tree':
                 symbol=tree
