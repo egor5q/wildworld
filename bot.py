@@ -108,7 +108,9 @@ def drawworld(user, point):
             if cworld[cpos]=='lake':
                 symbol=lake
             buttons.append(types.InlineKeyboardButton(text=symbol, callback_data='none'))
+            currenty+=1
         kb.add(*buttons)
+        currentx+=1
     bot.send_message(user.id, 'Центральная клетка:\nx='+str(x)+', y='+str(y), reply_markup=kb)
     
             
