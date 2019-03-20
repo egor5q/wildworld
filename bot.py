@@ -59,6 +59,9 @@ def createworldmessage(m):
             msg=bot.send_message(m.chat.id, 'Новый мир (x='+str(x)+', y='+str(y)+') был успешно сгенерирован!')
             if m.chat.id!=441399484:
                 bot.send_message(441399484, msg.text)
+        except:
+            bot.send_message(m.chat.id, 'Неправильно введены аргументы *х* и *у*!\n`/createworld 500 500`', parse_mode='markdown')
+            
             
 def createworld(x, y):
     currentworld={}
@@ -71,14 +74,16 @@ def createworld(x, y):
             if random.randint(1,100)<=chance:
                 currentplace=choiceobject()
             index=str(currentx)+' '+str(currenty)
-            currentworld.update({index:currentplace})
+            place={'object':currentplace,
+                  'index':index}
+            currentworld.update({index:place})
             currenty+=1
         x+=1
     return currentworld
 
 
 def choiceobject():
-    objects=['tree', 'rock', 'hill', 'hole', 'bush'] # bush = куст
+    objects=['tree', 'rock', 'hill', 'hole', 'bush', 'lake'] # bush = куст
     x=random.choice(objects)
     return x
 
