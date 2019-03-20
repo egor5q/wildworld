@@ -77,7 +77,9 @@ def showp(m):
     
     
 def drawworld(user, point):
+    print('1')
     cworld=world.find_one({})
+    print('2')
     tree='🌳'
     rock='⚫️'
     hill='⛰'
@@ -95,17 +97,17 @@ def drawworld(user, point):
         currenty=y-2
         while currenty<y+2:
             cpos=str(currentx)+' '+str(currenty)
-            if cworld[cpos]['object']=='tree':
+            if cworld[cpos]=='tree':
                 symbol=tree
-            if cworld[cpos]['object']=='rock':
+            if cworld[cpos]=='rock':
                 symbol=rock
-            if cworld[cpos]['object']=='hill':
+            if cworld[cpos]=='hill':
                 symbol=hill
-            if cworld[cpos]['object']=='hole':
+            if cworld[cpos]=='hole':
                 symbol=hole
-            if cworld[cpos]['object']=='bush':
+            if cworld[cpos]=='bush':
                 symbol=bush
-            if cworld[cpos]['object']=='lake':
+            if cworld[cpos]=='lake':
                 symbol=lake
             buttons.append(types.InlineKeyboardButton(text=symbol, callback_data='none'))
             currenty+=1
@@ -126,9 +128,7 @@ def createworld(x, y):
             if random.randint(1,100)<=chance:
                 currentplace=choiceobject()
             index=str(currentx)+' '+str(currenty)
-            place={'object':currentplace,
-                  'index':index}
-            currentworld.update({index:place})
+            currentworld.update({index:currentplace})
             currenty+=1
         currentx+=1
         print('x='+str(currentx))
