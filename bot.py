@@ -75,7 +75,10 @@ def showp(m):
         bot.send_message(m.chat.id, 'Ошибка! Возможны следующие варианты:\n1. Вы указали крайнюю точку, я не смог нарисовать мир вокруг '+
                          'неё в радиусе 2х блоков;\n2. Указаны неверные аргументы. Пример:\n`/showpoint 30 40`', parse_mode='markdown')
     
-    
+def createspecies(user):
+    pass
+
+
 def drawworld(user, point):
     print('1')
     cworld=world.find_one({})
@@ -109,10 +112,6 @@ def drawworld(user, point):
                 symbol=bush
             if cworld[cpos]=='lake':
                 symbol=lake
-            if random.randint(1,2)==1:
-                symbol+='t'
-            if random.randint(1,2)==1:
-                symbol+='e'
             buttons.append(types.InlineKeyboardButton(text=symbol, callback_data='none'))
             currenty+=1
         kb.add(*buttons)
