@@ -78,7 +78,7 @@ def createworld(x, y):
                   'index':index}
             currentworld.update({index:place})
             currenty+=1
-        x+=1
+        currentx+=1
     return currentworld
 
 
