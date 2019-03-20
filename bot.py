@@ -87,7 +87,6 @@ def drawworld(user, point):
     bush='☘️'
     lake='🌊'
     null='n'
-    symbol=null
     kb=types.InlineKeyboardMarkup(5)
     x=point[0]
     y=point[1]
@@ -97,6 +96,7 @@ def drawworld(user, point):
         currenty=y-2
         while currenty<=y+2:
             cpos=str(currentx)+' '+str(currenty)
+            symbol=null
             if cworld[cpos]=='tree':
                 symbol=tree
             if cworld[cpos]=='rock':
