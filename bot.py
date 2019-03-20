@@ -79,6 +79,8 @@ def createworld(x, y):
             currentworld.update({index:place})
             currenty+=1
         currentx+=1
+        print('x='+str(currentx))
+        print('y='+str(currenty))
     return currentworld
 
 
